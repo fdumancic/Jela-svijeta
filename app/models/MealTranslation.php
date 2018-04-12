@@ -1,0 +1,13 @@
+<?php
+
+namespace App\models;
+
+use Eloquent;
+use Illuminate\Database\Eloquent\Model;
+
+class MealTranslation extends Eloquent {
+
+    public $timestamps = false;
+    protected $fillable = ['title'];
+
+}
