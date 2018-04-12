@@ -14,15 +14,15 @@ use Illuminate\Http\Request;
 |
 */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
-
-Route::get('/test', 'TestController@test');
-
 Route::get('/meals', 'MealController@read');
 
-Route::get('/delete', function() {
-	Meal::find(1)->delete();
+Route::get('/delete/{id}', function($id) {
+	Meal::find($id)->delete();
 	return 'meal deleted';
 });
+
+Route::get('/restore/{id}', function($id) {
+	Meal::withTrashed()->find($id)->restore();
+	return 'meal restored';
+});
+
