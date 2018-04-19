@@ -16,7 +16,7 @@ class Meal extends Eloquent {
     public $translatedAttributes = ['title', 'description'];
     protected $fillable = ['slug'];
     protected $appends = ['status'];
-    protected $hidden = ['translations', 'category_id'];
+    protected $hidden = ['translations', 'category_id', 'updated_at', 'created_at', 'deleted_at'];
 
 
     use SoftDeletes;
@@ -38,7 +38,7 @@ class Meal extends Eloquent {
 
     public function getStatusAttribute()
     {
-        if (!empty(MealController::getDiff())) {
+        if (request()->has('diff_time')) {
             if(!is_null($this->deleted_at)){
                     return 'deleted';
                 }
@@ -52,11 +52,6 @@ class Meal extends Eloquent {
         {
             return 'created';
         }
-    }
-
-    public function setStatusAttribute($status)
-    {
-        return $status;
     }
 
     public function tags()

@@ -195,34 +195,34 @@ class DatabaseSeeder extends Seeder
 
         //meals-------------------------------------------------
         	DB::table('meals')->insert([
-        		'slug' => 'chicken salad',
+        		'slug' => 'chicken-salad',
         		'category_id' => '1',
         		'created_at' => \Carbon\Carbon::now(),
         		'updated_at' => \Carbon\Carbon::now()->addDays('20'),
         	]);
 
         	DB::table('meals')->insert([
-        		'slug' => 'grilled chicken with pommes',
+        		'slug' => 'grilled-chicken-with-pommes',
         		'category_id' => '3',
         		'created_at' => \Carbon\Carbon::now(),
         		'updated_at' => \Carbon\Carbon::now()->addDays('50'),
         	]);
 
         	DB::table('meals')->insert([
-        		'slug' => 'chicken wings',
+        		'slug' => 'chicken-wings',
         		'created_at' => \Carbon\Carbon::now(),
         		'updated_at' => \Carbon\Carbon::now()->addDays('10'),
         	]);
 
         	DB::table('meals')->insert([
-        		'slug' => 'baked potato',
+        		'slug' => 'baked-potato',
         		'category_id' => '2',
         		'created_at' => \Carbon\Carbon::now(),
         		'updated_at' => \Carbon\Carbon::now(),
         	]);
 
         	DB::table('meals')->insert([
-        		'slug' => 'chicken soup',
+        		'slug' => 'chicken-soup',
         		'category_id' => '5',
         		'created_at' => \Carbon\Carbon::now(),
         		'updated_at' => \Carbon\Carbon::now(),

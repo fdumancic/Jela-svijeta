@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ValidCategory;
 use App\Rules\ValidTag;
 use App\Rules\ValidTimestamp;
 use App\Rules\ValidWith;
@@ -32,7 +33,7 @@ class ValidationRequest extends FormRequest
                 'lang' => 'required|exists:languages,code',
                 'per_page' => 'integer|min:1',
                 'page' => 'integer|min:1',
-                'category' => 'nullable|integer|min:1|exists:categories,id',
+                'category' => ['nullable', new ValidCategory()],
                 'with' => ['string', new ValidWith()],
                 'tags' => new ValidTag('tags'),
                 'diff_time' => ['string', new ValidTimestamp()],
